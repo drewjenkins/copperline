@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Search, SlidersHorizontal, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -16,19 +16,23 @@ export function ShopPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
   const [sort, setSort] = useState<SortOption>('featured');
+  const [search, setSearch] = useState('');
 
-  const [filters, setFilters] = useState<Filters>({
+  // Derive category and roast from URL params on every render so footer links
+  // (which only change searchParams) always produce updated filter state.
+  const filters: Filters = {
     category: (searchParams.get('category') as Category | '') || '',
     roast: (searchParams.get('roast') as RoastLevel | '') || '',
-    search: '',
-  });
+    search,
+  };
 
-  useEffect(() => {
+  const setFilters = (newFilters: Filters) => {
+    setSearch(newFilters.search);
     const params: Record<string, string> = {};
-    if (filters.category) params.category = filters.category;
-    if (filters.roast) params.roast = filters.roast;
+    if (newFilters.category) params.category = newFilters.category;
+    if (newFilters.roast) params.roast = newFilters.roast;
     setSearchParams(params, { replace: true });
-  }, [filters.category, filters.roast, setSearchParams]);
+  };
 
   const filtered = useMemo(() => {
     let result = [...products];

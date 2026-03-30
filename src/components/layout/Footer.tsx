@@ -74,7 +74,7 @@ export function Footer() {
             <h4 className="text-sm font-semibold text-stone-50 tracking-wider uppercase">Company</h4>
             <ul className="space-y-2.5 text-sm">
               <li><Link to="/about" className="text-stone-400 hover:text-stone-200 transition-colors">Our Story</Link></li>
-              <li><Link to="/about" className="text-stone-400 hover:text-stone-200 transition-colors">Sustainability</Link></li>
+              <li><Link to="/sustainability" className="text-stone-400 hover:text-stone-200 transition-colors">Sustainability</Link></li>
               <li><a href="mailto:hello@copperlinecoffee.com" className="text-stone-400 hover:text-stone-200 transition-colors">Contact Us</a></li>
             </ul>
           </div>
@@ -83,8 +83,8 @@ export function Footer() {
           <div className="space-y-4">
             <h4 className="text-sm font-semibold text-stone-50 tracking-wider uppercase">Help</h4>
             <ul className="space-y-2.5 text-sm">
-              <li><Link to="/about" className="text-stone-400 hover:text-stone-200 transition-colors">Shipping & Returns</Link></li>
-              <li><Link to="/about" className="text-stone-400 hover:text-stone-200 transition-colors">FAQ</Link></li>
+              <li><Link to="/shipping" className="text-stone-400 hover:text-stone-200 transition-colors">Shipping & Returns</Link></li>
+              <li><Link to="/faq" className="text-stone-400 hover:text-stone-200 transition-colors">FAQ</Link></li>
               <li><Link to="/cart" className="text-stone-400 hover:text-stone-200 transition-colors">Order Tracking</Link></li>
             </ul>
           </div>
@@ -93,8 +93,8 @@ export function Footer() {
         <div className="mt-12 pt-8 border-t border-stone-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-600">
           <p>&copy; {new Date().getFullYear()} Copperline Coffee Roasters. All rights reserved.</p>
           <div className="flex gap-6">
-            <Link to="/about" className="hover:text-stone-400 transition-colors">Privacy Policy</Link>
-            <Link to="/about" className="hover:text-stone-400 transition-colors">Terms of Service</Link>
+            <Link to="/privacy" className="hover:text-stone-400 transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-stone-400 transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

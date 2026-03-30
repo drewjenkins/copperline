@@ -21,7 +21,7 @@ export function ProductCard({ product }: ProductCardProps) {
       transition={{ duration: 0.4 }}
       className="group"
     >
-      <Link to={`/products/${product.slug}`} className="block">
+      <Link to={`/product/${product.slug}`} className="block">
         <div className="relative overflow-hidden bg-stone-100 aspect-square mb-4">
           <img
             src={product.images[0]}

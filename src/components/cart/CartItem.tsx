@@ -15,7 +15,7 @@ export function CartItemRow({ item }: CartItemProps) {
   return (
     <div className="flex gap-4 py-6 border-b border-stone-100 last:border-0">
       {/* Image */}
-      <Link to={`/products/${item.product.slug}`} className="flex-shrink-0">
+      <Link to={`/product/${item.product.slug}`} className="flex-shrink-0">
         <img
           src={item.product.images[0]}
           alt={item.product.name}
@@ -28,7 +28,7 @@ export function CartItemRow({ item }: CartItemProps) {
         <div className="flex items-start justify-between gap-2">
           <div>
             <Link
-              to={`/products/${item.product.slug}`}
+              to={`/product/${item.product.slug}`}
               className="font-serif text-base text-stone-900 hover:text-amber-700 transition-colors block leading-snug"
             >
               {item.product.name}

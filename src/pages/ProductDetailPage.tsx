@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ShoppingBag, ArrowLeft, Leaf, MapPin, Star } from 'lucide-react';
 import { getProductBySlug, roastLevelLabels, bagSizePricing } from '../data/products';
@@ -15,7 +15,6 @@ import { StarRating } from '../components/ui/StarRating';
 
 export function ProductDetailPage() {
   const { slug } = useParams<{ slug: string }>();
-  const navigate = useNavigate();
   const product = getProductBySlug(slug || '');
 
   const [grindType, setGrindType] = useState<GrindType>('whole-bean');
@@ -52,13 +51,13 @@ export function ProductDetailPage() {
       <div className="pt-20 md:pt-24 min-h-screen bg-stone-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-8">
           {/* Breadcrumb */}
-          <button
-            onClick={() => navigate(-1)}
+          <Link
+            to="/shop"
             className="flex items-center gap-2 text-sm text-stone-500 hover:text-stone-900 transition-colors mb-8"
           >
             <ArrowLeft size={15} />
-            Back
-          </button>
+            Back to Shop
+          </Link>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-20">
             {/* Left: Image gallery */}

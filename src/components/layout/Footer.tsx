@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
-import { Mail, MapPin, Globe, Users } from 'lucide-react';
+import { Mail, MapPin, Globe, MessageCircle, Users } from 'lucide-react';
 
 export function Footer() {
   return (
     <footer className="bg-stone-950 text-stone-300">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Brand */}
           <div className="md:col-span-2 space-y-4">
             <div>
@@ -20,13 +20,38 @@ export function Footer() {
               <span>12 Copper Ridge Rd, Asheville, NC 28801</span>
             </div>
             <div className="flex items-center gap-4 pt-2">
-              <a href="#" aria-label="Instagram" className="text-stone-500 hover:text-amber-600 transition-colors">
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="text-stone-500 hover:text-amber-600 transition-colors"
+              >
                 <Globe size={18} />
               </a>
-              <a href="#" aria-label="Facebook" className="text-stone-500 hover:text-amber-600 transition-colors">
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Twitter"
+                className="text-stone-500 hover:text-amber-600 transition-colors"
+              >
+                <MessageCircle size={18} />
+              </a>
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="text-stone-500 hover:text-amber-600 transition-colors"
+              >
                 <Users size={18} />
               </a>
-              <a href="mailto:hello@copperlinecoffee.com" aria-label="Email" className="text-stone-500 hover:text-amber-600 transition-colors">
+              <a
+                href="mailto:hello@copperlinecoffee.com"
+                aria-label="Email"
+                className="text-stone-500 hover:text-amber-600 transition-colors"
+              >
                 <Mail size={18} />
               </a>
             </div>
@@ -40,8 +65,7 @@ export function Footer() {
               <li><Link to="/shop?category=single-origin" className="text-stone-400 hover:text-stone-200 transition-colors">Single Origin</Link></li>
               <li><Link to="/shop?category=blend" className="text-stone-400 hover:text-stone-200 transition-colors">Blends</Link></li>
               <li><Link to="/shop?category=seasonal" className="text-stone-400 hover:text-stone-200 transition-colors">Seasonal</Link></li>
-              <li><Link to="/shop?roast=light" className="text-stone-400 hover:text-stone-200 transition-colors">Light Roast</Link></li>
-              <li><Link to="/shop?roast=dark" className="text-stone-400 hover:text-stone-200 transition-colors">Dark Roast</Link></li>
+              <li><Link to="/shop?sort=featured" className="text-stone-400 hover:text-stone-200 transition-colors">Best Sellers</Link></li>
             </ul>
           </div>
 
@@ -50,11 +74,18 @@ export function Footer() {
             <h4 className="text-sm font-semibold text-stone-50 tracking-wider uppercase">Company</h4>
             <ul className="space-y-2.5 text-sm">
               <li><Link to="/about" className="text-stone-400 hover:text-stone-200 transition-colors">Our Story</Link></li>
-              <li><a href="#" className="text-stone-400 hover:text-stone-200 transition-colors">Sourcing Philosophy</a></li>
-              <li><a href="#" className="text-stone-400 hover:text-stone-200 transition-colors">Sustainability</a></li>
+              <li><Link to="/about" className="text-stone-400 hover:text-stone-200 transition-colors">Sustainability</Link></li>
               <li><a href="mailto:hello@copperlinecoffee.com" className="text-stone-400 hover:text-stone-200 transition-colors">Contact Us</a></li>
-              <li><a href="#" className="text-stone-400 hover:text-stone-200 transition-colors">Shipping Policy</a></li>
-              <li><a href="#" className="text-stone-400 hover:text-stone-200 transition-colors">Returns</a></li>
+            </ul>
+          </div>
+
+          {/* Help */}
+          <div className="space-y-4">
+            <h4 className="text-sm font-semibold text-stone-50 tracking-wider uppercase">Help</h4>
+            <ul className="space-y-2.5 text-sm">
+              <li><Link to="/about" className="text-stone-400 hover:text-stone-200 transition-colors">Shipping & Returns</Link></li>
+              <li><Link to="/about" className="text-stone-400 hover:text-stone-200 transition-colors">FAQ</Link></li>
+              <li><Link to="/cart" className="text-stone-400 hover:text-stone-200 transition-colors">Order Tracking</Link></li>
             </ul>
           </div>
         </div>
@@ -62,8 +93,8 @@ export function Footer() {
         <div className="mt-12 pt-8 border-t border-stone-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-600">
           <p>&copy; {new Date().getFullYear()} Copperline Coffee Roasters. All rights reserved.</p>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-stone-400 transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-stone-400 transition-colors">Terms of Service</a>
+            <Link to="/about" className="hover:text-stone-400 transition-colors">Privacy Policy</Link>
+            <Link to="/about" className="hover:text-stone-400 transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

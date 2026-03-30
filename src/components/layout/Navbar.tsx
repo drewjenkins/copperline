@@ -36,8 +36,8 @@ export function Navbar() {
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
             <Link to="/" className="flex flex-col leading-none">
-              <span className="font-serif text-xl text-stone-900 tracking-wide">Copperline</span>
-              <span className="text-xs text-amber-700 tracking-widest uppercase">Coffee Roasters</span>
+              <span className={`font-serif text-xl tracking-wide transition-colors duration-300 ${scrolled || mobileOpen ? 'text-stone-900' : 'text-white'}`}>Copperline</span>
+              <span className={`text-xs tracking-widest uppercase transition-colors duration-300 ${scrolled || mobileOpen ? 'text-amber-700' : 'text-amber-300'}`}>Coffee Roasters</span>
             </Link>
 
             {/* Desktop nav */}
@@ -47,8 +47,10 @@ export function Navbar() {
                   key={to}
                   to={to}
                   className={({ isActive }) =>
-                    `text-sm font-medium tracking-wide transition-colors ${
-                      isActive ? 'text-amber-700' : 'text-stone-600 hover:text-stone-900'
+                    `text-sm font-medium tracking-wide transition-colors duration-300 ${
+                      isActive
+                        ? scrolled ? 'text-amber-700' : 'text-amber-300'
+                        : scrolled ? 'text-stone-600 hover:text-stone-900' : 'text-white/80 hover:text-white'
                     }`
                   }
                 >
@@ -61,7 +63,7 @@ export function Navbar() {
             <div className="flex items-center gap-4">
               <Link
                 to="/cart"
-                className="relative p-2 text-stone-700 hover:text-stone-900 transition-colors"
+                className={`relative p-2 transition-colors duration-300 ${scrolled || mobileOpen ? 'text-stone-700 hover:text-stone-900' : 'text-white hover:text-white/80'}`}
                 aria-label="Cart"
               >
                 <ShoppingBag size={22} />
@@ -72,7 +74,7 @@ export function Navbar() {
                 )}
               </Link>
               <button
-                className="md:hidden p-2 text-stone-700 hover:text-stone-900 transition-colors"
+                className={`md:hidden p-2 transition-colors duration-300 ${scrolled || mobileOpen ? 'text-stone-700 hover:text-stone-900' : 'text-white hover:text-white/80'}`}
                 onClick={() => setMobileOpen(!mobileOpen)}
                 aria-label="Toggle menu"
               >
